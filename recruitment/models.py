@@ -1,6 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
 class Recruitment(models.Model):
     name = models.CharField('氏名', max_length=255)
     email = models.EmailField('連絡先')
@@ -25,3 +25,12 @@ class Recruitment(models.Model):
 
     def __str__(self):
         return self.name
+
+class Interview(models.Model):
+
+    date = models.DateField('面接日')
+    time = models.TimeField('時間')
+    interviewer = models.CharField('面接官', max_length=255)
+
+    def __str__(self):
+        return self.interviewer
