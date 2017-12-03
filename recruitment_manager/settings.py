@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recruitment',
+    'recruitment.apps.RecruitmentConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# ログイン用の設定
+LOGIN_REDIRECT_URL = '/recruitment/'
+LOGIN_URL = '/recruitment/login/'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
