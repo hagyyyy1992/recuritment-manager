@@ -1,5 +1,6 @@
-*.pyc
+.idea
+__pycache__/
+migrations/
 venv
 staticfiles
 db.sqlite3
-.idea
