@@ -28,10 +28,10 @@ def candidate_list(request):
             'MAX(recruitment_interview.date) AS max_date '
             'FROM recruitment_recruitment '
             'LEFT JOIN recruitment_interview '
-            'ON recruitment_recruitment.id = recruitment_interview.recruitment_id'
+            'ON recruitment_recruitment.id = recruitment_interview.recruitment_id '
             'GROUP BY recruitment_recruitment.id,'
             'recruitment_interview.recruitment_id,'
-            'recruitment_recruitment.delete_flg'
+            'recruitment_recruitment.delete_flg '
             'HAVING recruitment_recruitment.delete_flg = 0'
 
         )
