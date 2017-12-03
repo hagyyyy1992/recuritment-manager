@@ -25,7 +25,7 @@ def candidate_list(request):
             'recruitment_recruitment.age, '
             'recruitment_recruitment.graduation_year, '
             'recruitment_recruitment.candidates_accuracy, '
-            'MAX(recruitment_interview.date) AS max_date'
+            'MAX(recruitment_interview.date) AS max_date '
             'FROM recruitment_recruitment '
             'LEFT JOIN recruitment_interview '
             'ON recruitment_recruitment.id = recruitment_interview.recruitment_id'
