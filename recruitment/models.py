@@ -34,3 +34,12 @@ class Interview(models.Model):
 
     def __str__(self):
         return self.interviewer
+
+class ArchiveList(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    recruitment = models.ManyToManyField(Recruitment)
+    created_at = models.DateTimeField('作成日時', auto_now_add=True)
+    updated_at = models.DateTimeField('更新日時', auto_now=True)
+
+    def __str__(self):
+        return 'archive list - {}'.format(self.user.username)
