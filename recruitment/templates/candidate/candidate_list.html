@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="page-header">採用候補者一覧</h2>
+
+        <div class="table-responsive">
+            <table id="sampleTable" class="table table-stripe tablesorter">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>氏名</th>
+                    <th>連絡先</th>
+                    <th>学校名</th>
+                    <th>学部名</th>
+                    <th>選考ステータス</th>
+                    <th>選考日付</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for candidate in candidates %}
+                    <tr>
+                        <td><a href="{% url 'candidate_edit' candidate.id %}">{{ candidate.id }}</a></td>
+                        <td>{{ candidate.name }}</td>
+                        <td>{{ candidate.email }}</td>
+                        <td>{{ candidate.school_name }}</td>
+                        <td>{{ candidate.department }}</td>
+                        <td>{{ candidate.selection_status}}</td>
+                        <td>{{ candidate.max_date }}</td>
+                        <td>
+                            <form action="{% url 'add_archive' candidate.id %}" method="post" style="">
+                                {% csrf_token %}
+                                <input type="submit" value="アーカイブに移動する"/>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
