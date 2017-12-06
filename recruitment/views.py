@@ -5,8 +5,9 @@ from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from django.views.decorators.http import require_POST
 
-from recruitment.forms import RecruitmentForm
-from recruitment.models import Recruitment,ArchiveList
+from recruitment.forms import RecruitmentForm, InterviewForm
+from recruitment.models import Recruitment, ArchiveList, Interview
+
 
 @login_required
 def candidate_list(request):

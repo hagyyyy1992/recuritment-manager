@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^(?P<candidate_id>[0-9]+)/delete/$', views.delete, name='candidate_delete'),  # 削除ボタン
     url(r'^archive_list/$', views.archive_list, name='archive_list'),  # アーカイブ画面
     url(r'^(?P<candidate_id>[0-9]+)/add/archive_list/$', views.add_to_archive_list, name='add_archive'),  # アーカイブ追加
-    url(r'^(?P<candidate_id>[0-9]+)/return/candidate_list/$', views.return_to_candidate_list, name='return_to_candidate_list')  # アーカイブ削除
+    url(r'^(?P<candidate_id>[0-9]+)/return/candidate_list/$', views.return_to_candidate_list, name='return_to_candidate_list'),  # アーカイブ削除
+    url(r'^interview_add/$', views.add_to_interview, name='interview_add')
 ]
