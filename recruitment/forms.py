@@ -15,7 +15,7 @@ class InterviewForm(ModelForm):
     class Meta:
         model = Interview
         fields = [
-            'date', 'time', 'interviewer'
+            'recruitment','date', 'time', 'interviewer'
         ]
 
 class ArchiveList(ModelForm):
