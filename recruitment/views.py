@@ -47,21 +47,6 @@ def archive_list(request):
     context = {'candidates': archive_list.recruitment.all()}
     return TemplateResponse(request, 'candidate/candidate_archive_list.html', context=context)
 
-# 採用候補者編集画面
-@login_required
-def edit(request, candidate_id):
-    candidate = get_object_or_404(Recruitment, pk=candidate_id)
-    if request.method == 'POST':
-        form = RecruitmentForm(request.POST, instance=candidate)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('candidate_list'))
-    else:
-        form = RecruitmentForm(instance=candidate)
-
-    context = {'form': form, 'candidate': candidate}
-    return TemplateResponse(request, 'candidate/candidate_edit.html', context=context)
-
 # アーカイブ画面に移動させる
 @login_required
 @require_POST
@@ -91,6 +76,21 @@ def add_to_candidate_list(request):
 
     context = {'form':form,'candidate': candidate}
     return TemplateResponse(request, 'candidate/candidate_add.html', context=context)
+
+# 採用候補者編集画面
+@login_required
+def edit(request, candidate_id):
+    candidate = get_object_or_404(Recruitment, pk=candidate_id)
+    if request.method == 'POST':
+        form = RecruitmentForm(request.POST, instance=candidate)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('candidate_list'))
+    else:
+        form = RecruitmentForm(instance=candidate)
+
+    context = {'form': form, 'candidate': candidate}
+    return TemplateResponse(request, 'candidate/candidate_edit.html', context=context)
 
 # 採用候補者削除
 @login_required
