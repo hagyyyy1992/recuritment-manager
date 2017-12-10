@@ -77,6 +77,21 @@ def add_to_candidate_list(request):
     context = {'form':form,'candidate': candidate}
     return TemplateResponse(request, 'candidate/candidate_add.html', context=context)
 
+# 面接日程追加機能
+@login_required
+def add_to_interview(request):
+    interview = Interview()
+    if request.method == 'POST':
+        form = InterviewForm(request.POST, instance=interview)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('candidate_list'))
+    else:
+        form = InterviewForm(instance=interview)
+
+    context = {'form':form,'interview': interview}
+    return TemplateResponse(request, 'interview/interview_add.html', context=context)
+
 # 採用候補者編集画面
 @login_required
 def edit(request, candidate_id):
@@ -114,18 +129,3 @@ def return_to_candidate_list(request, candidate_id):
     recruitment.delete_flg = 0
     recruitment.save()
     return HttpResponseRedirect(reverse('candidate_list'))
-
-# 面接日程追加機能
-@login_required
-def add_to_interview(request):
-    interview = Interview()
-    if request.method == 'POST':
-        form = InterviewForm(request.POST, instance=interview)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('candidate_list'))
-    else:
-        form = InterviewForm(instance=interview)
-
-    context = {'form':form,'interview': interview}
-    return TemplateResponse(request, 'interview/interview_add.html', context=context)
