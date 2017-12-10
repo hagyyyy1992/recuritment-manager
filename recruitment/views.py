@@ -40,6 +40,13 @@ def candidate_list(request):
     }
     return TemplateResponse(request, 'candidate/candidate_list.html', context=context)
 
+# アーカイブ画面表示
+@login_required
+def archive_list(request):
+    archive_list, created = ArchiveList.objects.get_or_create(user=request.user)
+    context = {'candidates': archive_list.recruitment.all()}
+    return TemplateResponse(request, 'candidate/candidate_archive_list.html', context=context)
+
 # 採用候補者編集画面
 @login_required
 def edit(request, candidate_id):
@@ -77,13 +84,6 @@ def delete(request, candidate_id):
     candidate = get_object_or_404(Recruitment, pk=candidate_id)
     candidate.delete()
     return HttpResponseRedirect(reverse('candidate_list'))
-
-# アーカイブ画面表示
-@login_required
-def archive_list(request):
-    archive_list, created = ArchiveList.objects.get_or_create(user=request.user)
-    context = {'candidates': archive_list.recruitment.all()}
-    return TemplateResponse(request, 'candidate/candidate_archive_list.html', context=context)
 
 # アーカイブ画面に移動させる
 @login_required
