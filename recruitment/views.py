@@ -108,3 +108,17 @@ def return_to_candidate_list(request, candidate_id):
     recruitment.delete_flg = 0
     recruitment.save()
     return HttpResponseRedirect(reverse('candidate_list'))
+
+@login_required
+def add_to_interview(request):
+    interview = Interview()
+    if request.method == 'POST':
+        form = InterviewForm(request.POST, instance=interview)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('candidate_list'))
+    else:
+        form = InterviewForm(instance=interview)
+
+    context = {'form':form,'interview': interview}
+    return TemplateResponse(request, 'interview/interview_add.html', context=context)
