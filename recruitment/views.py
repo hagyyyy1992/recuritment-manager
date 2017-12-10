@@ -62,6 +62,21 @@ def edit(request, candidate_id):
     context = {'form': form, 'candidate': candidate}
     return TemplateResponse(request, 'candidate/candidate_edit.html', context=context)
 
+# アーカイブ画面に移動させる
+@login_required
+@require_POST
+def add_to_archive_list(request, candidate_id):
+    # idに紐づくRecruitmentレコードを取得
+    recruitment = get_object_or_404(Recruitment, pk=candidate_id)
+    # アーカイブリストを作成
+    archive_list, created = ArchiveList.objects.get_or_create(user=request.user)
+    # アーカイブリストに対象を追加
+    archive_list.recruitment.add(recruitment)
+    # アーカイブ追加の時はdelete_flgを1にする
+    recruitment.delete_flg = 1
+    recruitment.save()
+    return HttpResponseRedirect(reverse('archive_list'))
+
 # 採用候補者追加
 @login_required
 def add_to_candidate_list(request):
@@ -84,21 +99,6 @@ def delete(request, candidate_id):
     candidate = get_object_or_404(Recruitment, pk=candidate_id)
     candidate.delete()
     return HttpResponseRedirect(reverse('candidate_list'))
-
-# アーカイブ画面に移動させる
-@login_required
-@require_POST
-def add_to_archive_list(request, candidate_id):
-    # idに紐づくRecruitmentレコードを取得
-    recruitment = get_object_or_404(Recruitment, pk=candidate_id)
-    # アーカイブリストを作成
-    archive_list, created = ArchiveList.objects.get_or_create(user=request.user)
-    # アーカイブリストに対象を追加
-    archive_list.recruitment.add(recruitment)
-    # アーカイブ追加の時はdelete_flgを1にする
-    recruitment.delete_flg = 1
-    recruitment.save()
-    return HttpResponseRedirect(reverse('archive_list'))
 
 # 採用候補者一覧に戻す
 @login_required
