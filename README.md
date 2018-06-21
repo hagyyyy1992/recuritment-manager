@@ -36,3 +36,9 @@ Pass: dreU1tZJ
  -過去の面接情報が履歴表示される<br>
  -チャット<br>
  etc...
+ 
+ ## 使っている技術
+ Python<br>
+ Django<br>
+ heroku<br>
+ PostgreSQL
