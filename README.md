@@ -1,6 +1,8 @@
 # recuritment_manager
 
 採用の選考者を管理することを目的とした作りかけのツールです。
+会社で使ってもらおうと思って作りましたが、色々あって頓挫しました。
+自分用に拡張していこうと思います。
 
 https://test-app-20180622005216.herokuapp.com/accounts/login/
 
