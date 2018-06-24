@@ -41,6 +41,6 @@ Pass: dreU1tZJ
  
  ## 使っている技術
 Python 3.6.3<br>
-Django 2.0<br>
+Django 2.0.6<br>
 heroku<br>
 PostgreSQL
