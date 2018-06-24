@@ -10,10 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-# Static asset configuration
 import os
+import dj_database_url
+
+# Static asset configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
@@ -31,17 +37,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.auth',  # 認証システムです。
+    'django.contrib.contenttypes',  # コンテンツタイプフレームワーク です。
+    'django.contrib.sessions',  # セッションフレームワークです。
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recruitment.apps.RecruitmentConfig',
+    'recruitment.apps.RecruitmentConfig', 
 ]
 
 MIDDLEWARE = [
@@ -74,17 +79,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'recruitment_manager.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# ローカルではSQLiteを利用
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -104,10 +108,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
+# 日本語設定
 LANGUAGE_CODE = 'ja'
 
 TIME_ZONE = 'Asia/Tokyo'
@@ -118,18 +122,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
-
 # ログイン用の設定
 LOGIN_REDIRECT_URL = '/recruitment/'
 LOGIN_URL = '/recruitment/login/'
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 

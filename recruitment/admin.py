@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Recruitment,Interview,ArchiveList
+from .models import Recruitment, Interview, ArchiveList
 
 admin.site.register(Recruitment)
 admin.site.register(Interview)

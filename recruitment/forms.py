@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from recruitment.models import Recruitment,Interview,ArchiveList
+from recruitment.models import Recruitment, Interview, ArchiveList
 
 
 class RecruitmentForm(ModelForm):
@@ -11,12 +11,14 @@ class RecruitmentForm(ModelForm):
             'school_year', 'age', 'graduation_year', 'selection_status'
         ]
 
+
 class InterviewForm(ModelForm):
     class Meta:
         model = Interview
         fields = [
-            'recruitment','date', 'time', 'interviewer'
+            'recruitment', 'date', 'time', 'interviewer'
         ]
+
 
 class ArchiveList(ModelForm):
     class Meta:
