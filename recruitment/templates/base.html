@@ -36,7 +36,7 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 {% if user.is_authenticated %}
                 <ul class="nav nav-sidebar">
-                    {% if request.get_full_path == '/test-app-20180622005216.herokuapp.com/recruitment/' %}<li class="active">{% else %}<li>{% endif %}<a href="{% url 'candidate_list' %}">request.get_full_path</a></li>
+                    {% if request.get_full_path == '/test-app-20180622005216.herokuapp.com/recruitment/' %}<li class="active">{% else %}<li>{% endif %}<a href="{% url 'candidate_list' %}">{{request.get_full_path}}</a></li>
                     {% if request.get_full_path == '/recruitment/candidate_add/' %}<li class="active">{% else %}<li>{% endif %}<a href="{% url 'candidate_add' %}">採用候補者追加</a></li>
                     {% if request.get_full_path == '/recruitment/interview_add/' %}<li class="active">{% else %}<li>{% endif %}<a href="{% url 'interview_add' %}">面接日程追加</a></li>
                     {% if request.get_full_path == '/recruitment/archive_list/' %}<li class="active">{% else %}<li>{% endif %}<a href="{% url 'archive_list' %}">過去選考者</a></li>
