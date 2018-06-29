@@ -6,6 +6,7 @@ body {
     border: 0;
 }
 
+/* サイドバー */
 .sidebar {
     position: fixed;
     display: block;
@@ -23,4 +24,8 @@ body {
 .nav-sidebar {
     margin-right: -15px;
     margin-left: -15px;
+}
+
+.active {
+    background-color: #b0c4de;
 }
