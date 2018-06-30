@@ -5,6 +5,7 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 
+from recruitment.forms import RecruitmentForm
 from recruitment.models import Recruitment, ArchiveList
 
 
@@ -15,14 +16,28 @@ def archive_list(request):
     context = {'candidates': archive_list.recruitment.all()}
     return TemplateResponse(request, 'candidate/candidate_archive_list.html', context=context)
 
+# アーカイブ編集
+@login_required
+def edit(request, candidate_id):
+    candidate = get_object_or_404(Recruitment, pk=candidate_id)
+    if request.method == 'POST':
+        form = RecruitmentForm(request.POST, instance=candidate)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('archive_list'))
+    else:
+        form = RecruitmentForm(instance=candidate)
+
+    context = {'form': form, 'candidate': candidate}
+    return TemplateResponse(request, 'candidate/candidate_archive_edit.html', context=context)
+
 # 採用候補者削除
 @login_required
 @require_POST
 def delete(request, candidate_id):
     candidate = get_object_or_404(Recruitment, pk=candidate_id)
     candidate.delete()
-    return HttpResponseRedirect(reverse('candidate_list'))
-
+    return HttpResponseRedirect(reverse('archive_list'))
 
 # 採用候補者一覧に戻す
 @login_required

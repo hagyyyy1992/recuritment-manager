@@ -4,17 +4,15 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h2 class="page-header">更新</h2>
         <div class="col-md-5">
-            <form action="{% url 'candidate_edit' candidate.id %}" method="post">
+            <form action="{% url 'candidate_archive_edit' candidate.id %}" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" class="btn btn-default" value="更新する"/>
             </form>
-
-            <form action="{% url 'candidate_delete' candidate.id %}" method="post" style="margin-top:25px">
+            <form action="{% url 'candidate_archive_delete' candidate.id %}" method="post" style="margin-top:25px">
                 {% csrf_token %}
                 <input type="submit" class="btn btn-default" value="削除する"/>
             </form>
-
         </div>
     </div>
 

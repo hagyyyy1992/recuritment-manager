@@ -7,11 +7,11 @@ urlpatterns = [
     # 選考者編集画面
     re_path(r'^(?P<candidate_id>[0-9]+)/candidate_edit/$', candidate.edit, name='candidate_edit'),
     # アーカイブ編集画面
-    re_path(r'^(?P<candidate_id>[0-9]+)/candidate_edit/$', candidate.edit, name='candidate_edit'),
+    re_path(r'^(?P<candidate_id>[0-9]+)/candidate_archive_edit/$', archive.edit, name='candidate_archive_edit'),
     # 選考者追加画面
     re_path(r'^candidate_add/$', candidate_add.add_to_candidate_list, name='candidate_add'),
     # 削除ボタン
-    re_path(r'^(?P<candidate_id>[0-9]+)/delete/$', archive.delete, name='candidate_delete'),
+    re_path(r'^(?P<candidate_id>[0-9]+)/delete/$', archive.delete, name='candidate_archive_delete'),
     # アーカイブ画面
     re_path(r'^archive_list/$', archive.archive_list, name='archive_list'),
     # アーカイブ追加

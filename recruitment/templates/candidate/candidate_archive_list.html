@@ -20,7 +20,7 @@
                 <tbody>
                 {% for candidate in candidates %}
                     <tr>
-                        <td><a href="{% url 'candidate_edit' candidate.id %}">{{ candidate.id }}</a></td>
+                        <td><a href="{% url 'candidate_archive_edit' candidate.id %}">{{ candidate.id }}</a></td>
                         <td>{{ candidate.name }}</td>
                         <td>{{ candidate.email }}</td>
                         <td>{{ candidate.school_name }}</td>
