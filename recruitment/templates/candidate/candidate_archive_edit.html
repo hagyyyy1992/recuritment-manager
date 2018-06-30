@@ -2,7 +2,7 @@
 {% block contents %}
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="page-header">過去候補者更新</h2>
+        <h2 class="page-header">過去選考者更新</h2>
         <div class="col-md-5">
             <form action="{% url 'candidate_archive_edit' candidate.id %}" method="post">
                 {% csrf_token %}
