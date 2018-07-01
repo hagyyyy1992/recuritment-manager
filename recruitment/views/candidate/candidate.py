@@ -17,16 +17,25 @@ def candidate_list(request):
             # 素の SQL を記述
             'candidates': Recruitment.objects.raw
             (
-                'SELECT recruitment_recruitment.id, recruitment_recruitment.name, recruitment_recruitment.email, '
+                'SELECT '
+                'recruitment_recruitment.id, recruitment_recruitment.name, recruitment_recruitment.email, '
                 'recruitment_recruitment.school_name, recruitment_recruitment.department, '
                 'recruitment_recruitment.school_year, recruitment_recruitment.age, '
                 'recruitment_recruitment.graduation_year, recruitment_recruitment.candidates_accuracy, '
                 'MAX(recruitment_interview.date) AS max_date '
-                'FROM recruitment_recruitment '
-                'LEFT JOIN recruitment_interview ON recruitment_recruitment.id = recruitment_interview.recruitment_id '
-                'GROUP BY recruitment_recruitment.id,recruitment_interview.recruitment_id,'
-                'recruitment_recruitment.delete_flg '
-                'HAVING recruitment_recruitment.delete_flg = 0'  # delete_flgが0のもののみ表示する
+                
+                'FROM '
+                'recruitment_recruitment '
+                
+                'LEFT JOIN '
+                'recruitment_interview ON recruitment_recruitment.id = recruitment_interview.recruitment_id '
+                
+                'GROUP BY '
+                'recruitment_recruitment.id,recruitment_interview.recruitment_id,recruitment_recruitment.delete_flg '
+                
+                # delete_flgが0のもののみ表示する
+                'HAVING '
+                'recruitment_recruitment.delete_flg = 0'
             )
         }
     return TemplateResponse(request, 'candidate/candidate_list.html', context=context)
