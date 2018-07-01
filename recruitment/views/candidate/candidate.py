@@ -14,6 +14,7 @@ from recruitment.models import Recruitment, ArchiveList
 def candidate_list(request):
     context = \
         {
+            # 素の SQL を記述
             'candidates': Recruitment.objects.raw
             (
                 'SELECT recruitment_recruitment.id, recruitment_recruitment.name, recruitment_recruitment.email, '
