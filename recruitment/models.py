@@ -29,7 +29,7 @@ class Recruitment(models.Model):
 
 
 class Interview(models.Model):
-    recruitment = models.ForeignKey(Recruitment, on_delete=models.CASCADE)
+    recruitment = models.ForeignKey(Recruitment, verbose_name='選考者', on_delete=models.CASCADE)
     date = models.DateField('面接日')
     time = models.TimeField('時間')
     interviewer = models.CharField('面接官', max_length=255)
