@@ -1,11 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from django.urls import reverse
 
-from recruitment.forms import InterviewForm, RecruitmentForm
-from recruitment.models import Interview, Recruitment
+from recruitment.forms import InterviewForm
+from recruitment.model.models import Interview
 
 
 # 面接日程追加機能

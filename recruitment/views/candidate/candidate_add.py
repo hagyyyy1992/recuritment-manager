@@ -4,7 +4,7 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 
 from recruitment.forms import RecruitmentForm
-from recruitment.models import Recruitment
+from recruitment.model.models import Recruitment
 
 
 # 採用候補者追加

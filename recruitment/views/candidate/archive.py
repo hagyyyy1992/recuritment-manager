@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.decorators.http import require_POST
 
 from recruitment.forms import RecruitmentForm
-from recruitment.models import Recruitment, ArchiveList
+from recruitment.model.models import Recruitment, ArchiveList
 
 
 # アーカイブ画面表示

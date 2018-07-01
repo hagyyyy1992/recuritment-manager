@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from recruitment.models import Recruitment, Interview, ArchiveList
+from recruitment.model.models import Recruitment, Interview, ArchiveList
 
 
 class RecruitmentForm(ModelForm):
