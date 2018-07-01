@@ -2,9 +2,9 @@
 {% block contents %}
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="page-header">追加</h2>
+        <h2 class="page-header">選考日程追加</h2>
         <div class="col-md-5">
-            <form action="{% url 'interview_add' %}" method="post">
+            <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" class="btn btn-default" value="追加する"/>

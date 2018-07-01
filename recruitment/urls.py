@@ -19,5 +19,5 @@ urlpatterns = [
     # アーカイブ削除
     re_path(r'^(?P<candidate_id>[0-9]+)/return/candidate_list/$', archive.return_to_candidate_list, name='return_to_candidate_list'),
     # 選考日程追加
-    re_path(r'^interview_add/$', interview_add.add_to_interview, name='interview_add')
+    re_path(r'^(?P<candidate_id>[0-9]+)/interview_add/$', interview_add.add_to_interview, name='interview_add')
 ]

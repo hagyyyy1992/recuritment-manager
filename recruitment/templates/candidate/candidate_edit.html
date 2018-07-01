@@ -9,6 +9,10 @@
                 {{ form.as_p }}
                 <input type="submit" class="btn btn-default" value="更新する"/>
             </form>
+            <form action="{% url 'interview_add' candidate.id %}" style="margin-top:25px">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-default" value="選考日程を追加する"/>
+            </form>
         </div>
     </div>
 
