@@ -1,9 +1,6 @@
-from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.http import HttpResponseBadRequest
 from django.shortcuts import redirect
 from django.views import generic
-from django.core.signing import BadSignature, SignatureExpired, loads, dumps
 
 from recruitment.forms import UserCreateForm
 
