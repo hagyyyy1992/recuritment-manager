@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.forms import ModelForm
 
 from recruitment.model.models import Recruitment, Interview, ArchiveList
@@ -35,3 +37,19 @@ class ArchiveList(ModelForm):
         fields = [
             'user'
         ]
+
+
+class UserCreateForm(UserCreationForm):
+    """ユーザー登録用フォーム"""
+
+    class Meta:
+        model = User
+        if User.USERNAME_FIELD == 'email':
+            fields = ('email',)
+        else:
+            fields = ('username', 'email')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
