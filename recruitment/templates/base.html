@@ -22,16 +22,14 @@
                 {% endif %}
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">ログアウト</a></li>
-            </ul>
-            </div>
+                    <li><a href="{% url 'logout' %}">ログアウト</a></li>
             {% else %}
-            <li><a href="{% url 'user_create' %}">アカウント登録</a></li>
-            </ul>
-            </div>
+                    <li><a href="{% url 'user_create' %}">アカウント登録</a></li>
             {% endif %}
+                </ul>
+            </div>
         </div>
     </nav>
 
