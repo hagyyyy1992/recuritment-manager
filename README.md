@@ -1,3 +1,13 @@
+# 環境構築
+
+```
+$ git clone git@github.com:kqxgy385/recuritment-manager.git
+$ cd recuritment-manager
+$ python manage.py runserver
+```
+
+http://127.0.0.1:8000/accounts/login/
+
 # recuritment_manager
 
 【作成背景】<br>
