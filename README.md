@@ -78,6 +78,6 @@ https://test-app-20180622005216.herokuapp.com/accounts/login/
  
 ## 使っている技術
  - Python 3.6.3<br>
- - Django 2.0.6<br>
+ - Django 2.0.12<br>
  - heroku<br>
  - PostgreSQL
