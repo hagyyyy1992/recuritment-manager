@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.urls import re_path, include
 from django.contrib import admin
-from django.contrib.auth.views import login, logout
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-    re_path(r'^accounts/login/$', login, {'template_name': 'accounts/login.html'}, name='login'),
-    re_path(r'^accounts/logout/$', logout, {'next_page': '/accounts/login/'}, name='logout'),
+    re_path(
+        r'^accounts/login/$',
+        LoginView.as_view(template_name="accounts/login.html"),
+        name='login'
+    ),
+    re_path(
+        r'^accounts/logout/$',
+        LogoutView.as_view(next_page='/accounts/login/'),
+        name='logout'
+    ),
     re_path(r'^recruitment/', include('recruitment.urls')),
     re_path(r'^admin/', admin.site.urls),
 ]
