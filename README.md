@@ -3,6 +3,15 @@
 ```
 $ git clone git@github.com:kqxgy385/recuritment-manager.git
 $ cd recuritment-manager
+$ python -m venv venv
+$ source ./venv/bin/activate
+$ brew install psycopg2
+$ export LDFLAGS="-L/usr/local/opt/openssl/lib"
+$ export CPPFLAGS="-I/usr/local/opt/openssl/include"
+$ python -m pip install --upgrade pip
+$ pip install -r requirements.txt
+$ python manage.py makemigrations recruitment
+$ python manage.py migrate
 $ python manage.py runserver
 ```
 
