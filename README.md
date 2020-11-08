@@ -37,7 +37,7 @@ http://127.0.0.1:8000/accounts/login/
 ID: u13641 <br>
 Pass: dreU1tZJ
 
-https://test-app-20180622005216.herokuapp.com/accounts/login/
+https://www.recuritment-manager.com/accounts/login/
 
 ## 主な画面
 ### アカウント登録画面
