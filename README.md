@@ -1,7 +1,7 @@
 # 環境構築
 
 ```
-$ git clone git@github.com:kqxgy385/recuritment-manager.git
+$ git clone git@github.com:hagyyyy1992/recuritment-manager.git
 $ cd recuritment-manager
 $ python -m venv venv
 $ source ./venv/bin/activate
